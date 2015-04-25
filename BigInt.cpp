@@ -304,7 +304,8 @@ BigInt BigInt :: operator + (BigInt n)	{
 			carry = bucketSum / BUCKET_LIMIT;
 		}
 		if (carry > 0)	{
-			num.content[length ++] = carry;
+			num.length=num.length+1;		//Changing the length of the operand is not that necessary. Leads to incorrect calculations of Bucket, but the first right
+			num.content[length] = carry;
 		}
 		return num;
 	}
